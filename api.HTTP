@@ -1,0 +1,25 @@
+@project_id = {{ createProject.response.body.id }}
+
+###
+# @name createProject
+POST http://localhost:3000/projects
+Content-Type: application/json
+
+{
+  "name": "Project 1",
+  "description": "Description 01"
+}
+
+###
+GET http://localhost:3000/projects
+
+###
+GET http://localhost:3000/projects/{{project_id}}
+
+###
+POST http://localhost:3000/projects/{{project_id}}/start
+Content-Type: application/json
+
+{
+  "startedAt": "2020-01-01"
+}
